@@ -3,16 +3,17 @@ const app = express();
 
 app.use(express.static('public'));
 
-// app.get('/', (req, res) => {
-//     // res.send('Hello world');
-//     let salida = {
-//         nombre: 'Douglas',
-//         edad: '29',
-//         url: req.url
-//     }
+// Express HBS engine
+app.set('view engine', 'hbs');
 
-//     res.send(salida);
-// });
+app.get('/', (req, res) => {
+    
+
+    res.render('home.hbs', {
+        nombre: 'Douglas',
+        anio: new Date().getFullYear()
+    });
+});
 
 app.listen(3000, () => {
     console.log('Escuchando por el puerto 3000');
